@@ -100,7 +100,7 @@ while(game):
                 print("The dealer busted. You won")
                 game = False
                 break
-            elif(card_sum==21):
+            elif(card_sum(house_cards)==21):
                 print("Dealer also has 21. It is a tie")
                 game = False
                 break
