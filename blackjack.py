@@ -7,29 +7,6 @@ def draw_card():
             if not card in drawn_cards:
                 drawn_cards.append(card)
                 return card
-def suit():
-        for i in range(1,5):
-            suit = ''
-            if i == 1:
-                suit = " of Clubs"
-            elif i == 2:
-                suit = " of Diamonds"
-            elif i == 3:
-                suit = " of Hearts"
-            elif i ==4:
-                suit = " of Spades"
-        
-            for j in range(1,14):
-                if j == 1:
-                    j = "Ace"
-                elif j == 11:
-                    j = "Jack"
-                elif j == 12:
-                    j = "Queen"
-                elif j ==13:
-                    j = "King"
-                j = str(j) + suit
-                card_order.append(j)
 
 def value(card):
     val = 0
@@ -54,11 +31,11 @@ def card_sum(card_tuple):
     return sum(value_tuple)
         
 
-
+''' if you want to create continuous game - currently deck resets on compile
 def clear(card_list):
     clear(drawn_cards)
     return drawn_cards
-
+'''
 
 
 card_order = []
@@ -66,10 +43,30 @@ drawn_cards = []
 user_cards = ()
 house_cards = ()
 
-    
-suit()
+for i in range(1,5):
+    suit = ''
+    if i == 1:
+        suit = " of Clubs"
+    elif i == 2:
+        suit = " of Diamonds"
+    elif i == 3:
+        suit = " of Hearts"
+    elif i ==4:
+        suit = " of Spades"
+        
+    for j in range(1,14):
+        if j == 1:
+            j = "Ace"
+        elif j == 11:
+            j = "Jack"
+        elif j == 12:
+            j = "Queen"
+        elif j ==13:
+            j = "King"
+        j = str(j) + suit
+        card_order.append(j)
 
-hit_or_stand = ""  #This block always happens, code the conditionals
+hit_or_stand = ""
 draw_card()
 print("You were dealt a", card_order[drawn_cards[0]])
 user_cards = user_cards + (card_order[drawn_cards[0]],)
