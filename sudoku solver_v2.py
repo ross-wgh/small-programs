@@ -1,4 +1,4 @@
-board = [
+board = [ #need to edit board variable in python file - no gui or front end interface
     [2,4,0,5,7,3,8,9,0],
     [1,3,8,9,2,6,5,7,4],
     [9,0,5,8,4,1,2,6,3],
@@ -14,7 +14,7 @@ iterations = 0
 
 
 
-def print_board(sudoku_board): #print board
+def print_board(sudoku_board):
     for i in range(len(sudoku_board)):
         for j in range(len(sudoku_board[0])):
             if j == 2 or j == 5:
@@ -46,7 +46,7 @@ def is_valid(sudoku_board, num, position):
     box_x = position[1]//3
     box_y = position[0]//3
     
-    for i in range(box_y*3, box_y*3+3):
+    for i in range(box_y*3, box_y*3+3): #check 3x3 square that the position is contained
         for j in range(box_x*3, box_x*3+3):
             if sudoku_board[i][j] == num and (i,j) != position:
                 return False    
@@ -61,7 +61,7 @@ def solve(board):
             print("Unsolvable")
             return False
         else:
-            for i in range(0,9): #nested for checks if the final solution is valid, if not the sudoku is unsolvable
+            for i in range(0,9): #nested for checks if the final solution is valid, if invalid the sudoku is unsolvable
                 for j in range(0,9):
                     if not is_valid(board, board[i][j], (i,j)):
                         print("Unsolvable")              
