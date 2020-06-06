@@ -1,4 +1,4 @@
-#entirely based on user input ----> v3 will have data scraping from league sites/internet
+#NBA grabs team records from https://www.basketball-reference.com - other leagues do not yet have web-scraping capabilities
 import requests
 from bs4 import BeautifulSoup
 
@@ -38,7 +38,7 @@ class NBA(Sport):
     def __init__(self, w,l):
         super().__init__(w,l)
         self.games = 82
-    def get_rec(name):
+    def get_rec(name): # can make a broader record-scraping method accessible to other leagues
         result = requests.get("https://www.basketball-reference.com/")
 
         if(result.status_code==200):
