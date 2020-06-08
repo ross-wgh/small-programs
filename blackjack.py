@@ -22,11 +22,11 @@ def value(card):
         val = int(card.split(" ", 1)[0])
     return val
 
-def card_sum(card_tuple):
+def card_sum(card_tuple): 
     value_tuple = ()
     for card in card_tuple:
         value_tuple = value_tuple + (value(card),)
-    if "Ace" in card_tuple and sum(value_tuple)>21:
+    if "Ace" in card_tuple and sum(value_tuple)>21: #Ace cards non function as tuple type does not support "in" keyword in default python 
         return sum(value_tuple)-10
     return sum(value_tuple)
         
